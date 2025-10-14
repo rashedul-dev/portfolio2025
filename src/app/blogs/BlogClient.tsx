@@ -13,6 +13,7 @@ interface Blog {
   title: string;
   slug: string;
   excerpt: string;
+  content: string;
   coverImage: string;
   published: boolean;
   createdAt: string;
@@ -242,7 +243,7 @@ function BlogCard({ blog, index }: { blog: Blog; index: number }) {
               </div>
               <div className="flex items-center gap-1">
                 <Clock className="size-3" />
-                <span>{estimateReadTime(blog.excerpt || "")}</span>
+                <span>{estimateReadTime(blog.content || "")}</span>
               </div>
             </div>
 

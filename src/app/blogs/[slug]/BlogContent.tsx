@@ -122,7 +122,7 @@ export default function BlogContent({ blog }: BlogContentProps) {
             >
               <div className="flex items-center gap-2">
                 <User className="size-4" />
-                <span>Admin User</span>
+                <span>Rashedul Islam</span>
               </div>
               <div className="flex items-center gap-2">
                 <Calendar className="size-4" />

@@ -256,7 +256,7 @@ export function HomePageClient({ projects }: HomePageClientProps) {
                 transition={{ duration: 2, repeat: Infinity }}
                 className="size-2 rounded-full bg-emerald-500"
               />
-              Available for senior full-stack roles & consulting
+              Available for Full-stack roles & consulting
             </motion.div>
 
             <motion.h1 variants={fadeIn} className="text-4xl sm:text-6xl font-semibold tracking-tight">
@@ -264,8 +264,7 @@ export function HomePageClient({ projects }: HomePageClientProps) {
             </motion.h1>
 
             <motion.p variants={fadeIn} className="mt-3 text-lg text-muted-foreground">
-              Senior Full Stack Developer specializing in scalable web platforms, data-intensive systems, and beautiful
-              UX.
+              Full Stack Developer specializing in scalable web platforms, data-intensive systems, and beautiful UX.
             </motion.p>
 
             <motion.div variants={fadeIn} className="mt-8 flex flex-wrap gap-3">
