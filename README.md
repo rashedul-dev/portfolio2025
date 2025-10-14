@@ -19,6 +19,17 @@ A **cutting-edge full-stack developer portfolio** built with **Next.js 14**, fea
 
 ---
 
+## 🔐 Default Admin Credentials
+
+For initial setup and testing, use these default admin credentials:
+
+**Email:** `admin@portfolio.com`  
+**Password:** `Admin@123!`
+
+[🚀 Click here to access Admin Login](https://dev-rashedul.vercel.app/login?redirect=/dashboard)
+
+---
+
 ### 🎯 Portfolio Essentials
 
 - 🖼️ **Project Gallery** — Filterable portfolio with detailed project views

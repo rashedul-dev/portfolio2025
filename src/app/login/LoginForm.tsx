@@ -128,7 +128,7 @@ export default function LoginForm() {
               Email: <code className="bg-background px-1 py-0.5 rounded">admin@portfolio.com</code>
             </p>
             <p className="text-xs text-muted-foreground">
-              Password: <code className="bg-background px-1 py-0.5 rounded">admin123</code>
+              Password: <code className="bg-background px-1 py-0.5 rounded">Admin@123</code>
             </p>
           </div>
         </CardContent>
