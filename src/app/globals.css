@@ -1,0 +1,243 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap");
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+:root {
+  --radius: 0.625rem;
+  --font-geist-sans:
+    "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+    "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+
+  /* Light Theme - Pure White & Black */
+  --background: oklch(1 0 0); /* Pure White */
+  --foreground: oklch(0 0 0); /* Pure Black */
+  --card: oklch(1 0 0); /* Pure White */
+  --card-foreground: oklch(0 0 0); /* Pure Black */
+  --popover: oklch(1 0 0); /* Pure White */
+  --popover-foreground: oklch(0 0 0); /* Pure Black */
+  --primary: oklch(0 0 0); /* Pure Black */
+  --primary-foreground: oklch(1 0 0); /* Pure White */
+  --secondary: oklch(0.98 0 0); /* Very Light Gray */
+  --secondary-foreground: oklch(0 0 0); /* Pure Black */
+  --muted: oklch(0.98 0 0); /* Very Light Gray */
+  --muted-foreground: oklch(0.4 0 0); /* Medium Gray */
+  --accent: oklch(0.98 0 0); /* Very Light Gray */
+  --accent-foreground: oklch(0 0 0); /* Pure Black */
+  --destructive: oklch(0.4 0 0); /* Medium Gray for destructive */
+  --border: oklch(0.9 0 0); /* Light Gray */
+  --input: oklch(0.95 0 0); /* Very Light Gray */
+  --ring: oklch(0.6 0 0); /* Medium Gray */
+
+  /* Charts - Grayscale */
+  --chart-1: oklch(0.2 0 0); /* Dark Gray */
+  --chart-2: oklch(0.4 0 0); /* Medium Gray */
+  --chart-3: oklch(0.6 0 0); /* Gray */
+  --chart-4: oklch(0.8 0 0); /* Light Gray */
+  --chart-5: oklch(0.9 0 0); /* Very Light Gray */
+
+  /* Sidebar */
+  --sidebar: oklch(1 0 0); /* Pure White */
+  --sidebar-foreground: oklch(0 0 0); /* Pure Black */
+  --sidebar-primary: oklch(0 0 0); /* Pure Black */
+  --sidebar-primary-foreground: oklch(1 0 0); /* Pure White */
+  --sidebar-accent: oklch(0.98 0 0); /* Very Light Gray */
+  --sidebar-accent-foreground: oklch(0 0 0); /* Pure Black */
+  --sidebar-border: oklch(0.9 0 0); /* Light Gray */
+  --sidebar-ring: oklch(0.6 0 0); /* Medium Gray */
+}
+
+.dark {
+  /* Dark Theme - Pure Black & White */
+  --background: oklch(0 0 0); /* Pure Black */
+  --foreground: oklch(1 0 0); /* Pure White */
+  --card: oklch(0.1 0 0); /* Very Dark Gray */
+  --card-foreground: oklch(1 0 0); /* Pure White */
+  --popover: oklch(0.1 0 0); /* Very Dark Gray */
+  --popover-foreground: oklch(1 0 0); /* Pure White */
+  --primary: oklch(1 0 0); /* Pure White */
+  --primary-foreground: oklch(0 0 0); /* Pure Black */
+  --secondary: oklch(0.15 0 0); /* Dark Gray */
+  --secondary-foreground: oklch(1 0 0); /* Pure White */
+  --muted: oklch(0.15 0 0); /* Dark Gray */
+  --muted-foreground: oklch(0.8 0 0); /* Light Gray */
+  --accent: oklch(0.15 0 0); /* Dark Gray */
+  --accent-foreground: oklch(1 0 0); /* Pure White */
+  --destructive: oklch(0.7 0 0); /* Light Gray for destructive */
+  --border: oklch(1 0 0 / 15%); /* White with transparency */
+  --input: oklch(1 0 0 / 20%); /* White with transparency */
+  --ring: oklch(0.8 0 0); /* Light Gray */
+
+  /* Charts - Grayscale */
+  --chart-1: oklch(0.9 0 0); /* Very Light Gray */
+  --chart-2: oklch(0.7 0 0); /* Light Gray */
+  --chart-3: oklch(0.5 0 0); /* Medium Gray */
+  --chart-4: oklch(0.3 0 0); /* Dark Gray */
+  --chart-5: oklch(0.1 0 0); /* Very Dark Gray */
+
+  /* Sidebar */
+  --sidebar: oklch(0.1 0 0); /* Very Dark Gray */
+  --sidebar-foreground: oklch(1 0 0); /* Pure White */
+  --sidebar-primary: oklch(1 0 0); /* Pure White */
+  --sidebar-primary-foreground: oklch(0 0 0); /* Pure Black */
+  --sidebar-accent: oklch(0.15 0 0); /* Dark Gray */
+  --sidebar-accent-foreground: oklch(1 0 0); /* Pure White */
+  --sidebar-border: oklch(1 0 0 / 15%); /* White with transparency */
+  --sidebar-ring: oklch(0.8 0 0); /* Light Gray */
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* ===== Next.js Overlay Fix ===== */
+nextjs-portal {
+  display: none !important;
+}
+
+/* ===== Quill Editor Container & Toolbar ===== */
+.quill-editor-wrapper {
+  /* Container styles */
+}
+
+/* Prevent duplicate toolbars */
+.quill-editor-wrapper .ql-toolbar:first-child {
+  display: block;
+}
+
+.quill-editor-wrapper .ql-toolbar:not(:first-child) {
+  display: none !important;
+}
+
+/* ===== Quill Snow Theme Overrides ===== */
+/* Toolbar styling */
+.ql-toolbar.ql-snow {
+  border-top: 1px solid hsl(var(--border));
+  border-left: 1px solid hsl(var(--border));
+  border-right: 1px solid hsl(var(--border));
+  border-bottom: none;
+  background: hsl(var(--muted) / 0.3);
+  padding: 12px 16px;
+  border-radius: 12px 12px 0 0;
+}
+
+/* Container styling */
+.ql-container.ql-snow {
+  border: 1px solid hsl(var(--border));
+  border-top: none;
+  background: transparent;
+  border-radius: 0 0 12px 12px;
+}
+
+/* Editor content area */
+.ql-editor {
+  color: hsl(var(--foreground));
+  font-family: inherit;
+  font-size: 16px;
+  line-height: 1.6;
+  padding: 20px;
+  min-height: 300px;
+}
+
+/* Placeholder text */
+.ql-editor.ql-blank::before {
+  color: hsl(var(--muted-foreground));
+  font-style: italic;
+  font-size: 16px;
+}
+
+/* ===== Toolbar Components ===== */
+/* Toolbar button groups */
+.ql-toolbar .ql-formats {
+  margin-right: 16px;
+}
+
+/* Toolbar buttons, pickers, and labels */
+.ql-toolbar .ql-picker,
+.ql-toolbar .ql-picker-label,
+.ql-toolbar button {
+  border: 1px solid transparent;
+  border-radius: 6px;
+  transition: all 0.15s ease-in-out;
+}
+
+/* Hover states */
+.ql-toolbar button:hover,
+.ql-toolbar .ql-picker-label:hover {
+  background: hsl(var(--accent));
+  border-color: hsl(var(--border));
+}
+
+/* Active state */
+.ql-toolbar button.ql-active {
+  background: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+}
+
+/* ===== Rich Text Editor Specific Overrides ===== */
+/* Additional specificity for rich-text-editor class */
+.rich-text-editor .ql-toolbar {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid hsl(var(--border));
+  background: hsl(var(--muted) / 0.3);
+  padding: 12px 16px;
+  border-radius: 12px 12px 0 0;
+}
+
+.rich-text-editor .ql-container {
+  border: none;
+  background: transparent;
+}
+
+.rich-text-editor .ql-editor {
+  color: hsl(var(--foreground));
+  font-family: inherit;
+}
