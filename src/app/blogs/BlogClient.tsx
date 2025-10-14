@@ -36,8 +36,7 @@ export default function BlogClient() {
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
-        const res = await fetch(`${baseUrl}/api/blogs?published=true`, {
+        const res = await fetch("/api/blogs?published=true", {
           next: {
             revalidate: 3600, // 1 hour
             tags: ["blogs"],
