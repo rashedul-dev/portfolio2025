@@ -47,7 +47,6 @@ next-env.d.ts
 #secret
 .env
 
-/public
 
 /src 
 
