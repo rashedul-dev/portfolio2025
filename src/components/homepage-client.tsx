@@ -209,36 +209,33 @@ export function HomePageClient({ projects }: HomePageClientProps) {
             />
             <div className="relative overflow-hidden rounded-xl ring-1 ring-border/60 shadow-lg bg-card">
               <motion.div
-                key={currentImage} // Force re-render when image changes
+                key={currentImage}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ duration: 0.3 }}
-                className="size-full"
+                transition={{ duration: 0.3, type: "spring", stiffness: 200, damping: 20 }}
+                className="size-full object-cover relative overflow-hidden group"
               >
                 {isLoading && (
                   <div className="absolute inset-0 bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-800 animate-pulse rounded-lg" />
                 )}
+
+                {/* Enhanced shining effect */}
+                <div className="absolute inset-0 overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent skew-x-12 translate-x-[-150%] group-hover:translate-x-[150%] transition-all duration-1000 ease-in-out z-10" />
+                </div>
 
                 <Image
                   src={currentImage}
                   alt="Rashedul Islam portrait"
                   className={`size-full object-cover transition-all duration-500 ${
                     isLoading ? "opacity-0 scale-105" : "opacity-100 scale-100"
-                  }`}
+                  } group-hover:brightness-105`}
                   width={320}
                   height={400}
                   priority
                   onLoad={() => setIsLoading(false)}
                   onLoadingComplete={() => setIsLoading(false)}
                 />
-                {/* <Image
-                  src={currentImage}
-                  alt="Rashedul Islam portrait"
-                  className="size-full object-cover"
-                  width={320}
-                  height={400}
-                  priority
-                /> */}
               </motion.div>
             </div>
           </motion.div>
