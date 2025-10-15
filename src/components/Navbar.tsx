@@ -28,7 +28,7 @@ export function Navbar({ dark, setDark, mounted }: NavbarProps) {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
             <div className="size-8 rounded-md bg-primary/10 grid place-items-center text-primary font-bold">RI</div>
-            <span className="text-sm font-medium text-muted-foreground hidden sm:inline">Rashedul Islam</span>
+            <span className="text-lg font-medium text-muted-foreground hidden sm:inline">Rashedul Islam</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -37,14 +37,14 @@ export function Navbar({ dark, setDark, mounted }: NavbarProps) {
               <a
                 key={link.href}
                 href={link.href}
-                className="px-3 py-2 rounded-md text-sm text-muted-foreground hover:text-foreground hover:bg-accent transition"
+                className="px-3 py-2 rounded-md text-lg text-muted-foreground hover:text-foreground hover:bg-accent transition"
               >
                 {link.label}
               </a>
             ))}
             <Link
               href="/blogs"
-              className="px-3 py-2 rounded-md text-sm text-muted-foreground hover:text-foreground hover:bg-accent transition"
+              className="px-3 py-2 rounded-md text-lg text-muted-foreground hover:text-foreground hover:bg-accent transition"
             >
               Blog
             </Link>
@@ -90,21 +90,21 @@ export function Navbar({ dark, setDark, mounted }: NavbarProps) {
                     <a
                       key={link.href}
                       href={link.href}
-                      className="px-3 py-2 rounded-md text-sm text-muted-foreground hover:text-foreground hover:bg-accent transition"
+                      className="px-3 py-2 rounded-md text-lg text-muted-foreground hover:text-foreground hover:bg-accent transition"
                     >
                       {link.label}
                     </a>
                   ))}
                   <Link
                     href="/blogs"
-                    className="px-3 py-2 rounded-md text-sm text-muted-foreground hover:text-foreground hover:bg-accent transition"
+                    className="px-3 py-2 rounded-md text-lg text-muted-foreground hover:text-foreground hover:bg-accent transition"
                   >
                     Blog
                   </Link>
                   <Separator className="my-2" />
                   <Link
                     href="/dashboard"
-                    className="px-3 py-2 rounded-md text-sm text-muted-foreground hover:text-foreground hover:bg-accent transition"
+                    className="px-3 py-2 rounded-md text-lg text-muted-foreground hover:text-foreground hover:bg-accent transition"
                   >
                     Dashboard
                   </Link>
@@ -112,13 +112,13 @@ export function Navbar({ dark, setDark, mounted }: NavbarProps) {
                   <div className="flex gap-2 pl-2">
                     <Link
                       href="https://github.com/rashedul-dev"
-                      className="inline-flex items-center gap-1 text-sm hover:underline"
+                      className="inline-flex items-center gap-1 text-lg hover:underline"
                     >
                       <Github className="size-4" /> GitHub
                     </Link>
                     <Link
                       href="https://linkedin.com/in/yourname"
-                      className="inline-flex items-center gap-1 text-sm hover:underline"
+                      className="inline-flex items-center gap-1 text-lg hover:underline"
                     >
                       <Linkedin className="size-4" /> LinkedIn
                     </Link>

@@ -1,4 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap");
+/* Import Bricolage Grotesque */
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap");
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -45,9 +46,14 @@
 }
 
 :root {
-  --radius: 0.625rem;
+  /* --radius: 0.625rem;
   --font-geist-sans:
     "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+    "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji"; */
+
+  --radius: 0.625rem;
+  --font-geist-sans:
+    "Bricolage Grotesque", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial,
     "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
 
   /* Light Theme - Pure White & Black */
@@ -125,6 +131,10 @@
   --sidebar-accent-foreground: oklch(1 0 0); /* Pure White */
   --sidebar-border: oklch(1 0 0 / 15%); /* White with transparency */
   --sidebar-ring: oklch(0.8 0 0); /* Light Gray */
+}
+
+body {
+  font-family: var(--font-geist-sans);
 }
 
 @layer base {
