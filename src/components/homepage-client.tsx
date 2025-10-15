@@ -589,8 +589,7 @@ export function HomePageClient({ projects }: HomePageClientProps) {
                     transition={{ delay: index * 0.1 }}
                     className="flex items-center gap-3 text-primary"
                   >
-                    <span className="text-primary mt-1 flex-shrink-0">•</span>
-                    <span>{work}</span>
+                    <span className="text-lg scale-150 inline-block">•</span> <span>{work}</span>
                   </motion.li>
                 ))}
               </ul>
