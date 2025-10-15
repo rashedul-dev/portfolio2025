@@ -197,16 +197,17 @@ function BlogCard({ blog, index }: { blog: Blog; index: number }) {
       whileHover={{ y: -2 }}
     >
       <Link href={`/blogs/${blog.slug}`} className="group">
-        <Card className="overflow-hidden pt-0 h-full hover:border-primary/40 transition-all duration-300 group-hover:shadow-lg border-muted/70">
+        <Card className="overflow-hidden group border-muted/70 hover:border-primary/40 transition h-full flex flex-col bg-background hover:cursor-pointer">
           {/* Cover Image */}
           {blog.coverImage && (
             <div className="relative p-4 h-48 overflow-hidden">
               <motion.img
                 src={blog.coverImage}
                 alt={blog.title}
-                className="w-full h-full object-cover transition duration-300 rounded-xl"
+                className="w-full h-full object-cover transition duration-300 group-hover:scale-105 rounded-xl"
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3 }}
+                loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent" />
             </div>
@@ -215,12 +216,8 @@ function BlogCard({ blog, index }: { blog: Blog; index: number }) {
           <CardHeader>
             <CardTitle className="text-lg flex items-start justify-between gap-2 group-hover:text-primary transition">
               <span className="line-clamp-2">{blog.title}</span>
-              <motion.div
-                initial={{ opacity: 0, x: -5 }}
-                whileHover={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.2 }}
-              >
-                <ArrowUpRight className="shrink-0" />
+              <motion.div whileHover={{ opacity: 1, x: 0 }} transition={{ duration: 0.2 }}>
+                <ArrowUpRight className="size-4 shrink-0 mt-1 opacity-0 group-hover:opacity-100 transition-opacity" />
               </motion.div>
             </CardTitle>
           </CardHeader>

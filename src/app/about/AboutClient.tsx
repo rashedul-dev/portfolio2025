@@ -408,21 +408,23 @@ const AboutClient = () => {
           transition={{ delay: 0.5 }}
           className="text-center py-12 bg-muted/20 border-1 rounded-2xl"
         >
-          <div className="max-w-2xl mx-auto space-y-6 ">
-            <h2 className="text-2xl md:text-3xl font-bold">Let's Build Something Amazing Together</h2>
-            <p className="text-muted-foreground">
+          <div className="max-w-2xl mx-auto space-y-4 sm:space-y-6 px-4 sm:px-6 lg:px-0">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-center sm:text-left">
+              Let's Build Something Amazing Together
+            </h2>
+            <p className="text-muted-foreground text-base sm:text-lg text-center sm:text-left sm:px-4">
               I'm always excited to collaborate on interesting projects and learn from fellow developers.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="gap-2">
+            <div className="flex flex-col xs:flex-row gap-3 sm:gap-4 justify-center sm:justify-start">
+              <Button size="lg" className="gap-2 w-full xs:w-auto justify-center">
                 <Mail className="w-4 h-4" />
-                <Link href={"/contact"}> Get In Touch</Link>
+                <Link href={"/contact"}>Get In Touch</Link>
               </Button>
               <Button
                 variant="outline"
                 size="lg"
-                className="gap-2"
-                onClick={() => toast.error("Resume will be available soon ")}
+                className="gap-2 w-full xs:w-auto justify-center"
+                onClick={() => toast.error("Resume will be available soon")}
               >
                 <Download className="w-4 h-4" />
                 Download Resume

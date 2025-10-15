@@ -20,7 +20,6 @@ export function Navbar({ dark, setDark, mounted }: NavbarProps) {
     { href: "/about", label: "About" },
     { href: "/contact", label: "Contact" },
   ];
-  
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b">
@@ -110,7 +109,7 @@ export function Navbar({ dark, setDark, mounted }: NavbarProps) {
                     Dashboard
                   </Link>
                   <Separator className="my-2" />
-                  <div className="flex gap-2">
+                  <div className="flex gap-2 pl-2">
                     <Link
                       href="https://github.com/rashedul-dev"
                       className="inline-flex items-center gap-1 text-sm hover:underline"

@@ -8,9 +8,33 @@ import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Separator } from "@/components/ui/separator";
-import { Menu, Moon, Sun, ArrowUpRight, Github, Linkedin, Mail, ExternalLink, Download } from "lucide-react";
+import {
+  Menu,
+  Moon,
+  Sun,
+  ArrowUpRight,
+  Github,
+  Linkedin,
+  Mail,
+  ExternalLink,
+  Download,
+  Calendar,
+  Clock,
+} from "lucide-react";
 import toast from "react-hot-toast";
 import Image from "next/image";
+
+interface Blog {
+  id: number;
+  title: string;
+  slug: string;
+  excerpt: string;
+  content: string;
+  coverImage: string | null;
+  published: boolean;
+  createdAt: string;
+  updatedAt: string;
+}
 
 interface Project {
   id: number;
@@ -33,6 +57,33 @@ export function HomePageClient({ projects }: HomePageClientProps) {
   const [dark, setDark] = useState(false);
   const [currentImage, setCurrentImage] = useState("/images/portrait-light.png");
   const [isLoading, setIsLoading] = useState(true);
+  const [blogs, setBlogs] = useState<Blog[]>([]);
+  const [blogsLoading, setBlogsLoading] = useState(true);
+
+  // Fetch recent blogs
+  useEffect(() => {
+    const fetchRecentBlogs = async () => {
+      try {
+        const res = await fetch("/api/blogs?published=true&limit=3", {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+
+        if (res.ok) {
+          const data = await res.json();
+          setBlogs(data);
+        }
+      } catch (error) {
+        console.error("Failed to fetch blogs:", error);
+      } finally {
+        setBlogsLoading(false);
+      }
+    };
+
+    fetchRecentBlogs();
+  }, []);
 
   // Page loading animation
   useEffect(() => {
@@ -194,7 +245,7 @@ export function HomePageClient({ projects }: HomePageClientProps) {
       transition={{ duration: 0.6 }}
     >
       {/* Hero Section */}
-      <section className="relative pt-40 pb-24 !flex">
+      <section className="relative !flex pt-20 pb-24 sm:pt-40 sm:px-20 sm:pb-10">
         <div className="mx-auto px-4 grid grid-cols-1 md:grid-cols-2 items-center gap-10 !w-[1152px] !h-full !max-w-6xl">
           {/* Portrait Image with Theme Sync */}
           <motion.div
@@ -268,16 +319,11 @@ export function HomePageClient({ projects }: HomePageClientProps) {
             </motion.p>
 
             <motion.div variants={fadeIn} className="mt-8 flex flex-wrap gap-3">
-              <Button asChild>
+              <Button asChild size="lg">
                 <a href="#projects">
                   View Projects <ArrowUpRight className="ml-1 size-4" />
                 </a>
               </Button>
-              {/* <Button asChild variant="secondary">
-                <a href="/contact">
-                  Contact Me <Mail className="ml-1 size-4" />
-                </a>
-              </Button> */}
               <Button
                 variant="outline"
                 size="lg"
@@ -394,6 +440,116 @@ export function HomePageClient({ projects }: HomePageClientProps) {
         </div>
       </section>
 
+      {/* Recent Blogs Section */}
+      <section id="blogs" className="py-20 bg-background">
+        <div className="mx-auto max-w-6xl px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            className="mb-10 flex items-end justify-between"
+          >
+            <div>
+              <h2 className="text-2xl sm:text-3xl font-semibold">Recent Writings</h2>
+              <p className="text-muted-foreground mt-1">Latest insights and thoughts on development</p>
+            </div>
+            <Button asChild variant="ghost" className="hidden sm:inline-flex">
+              <Link href="/blogs" rel="noreferrer">
+                View all posts <ArrowUpRight className="ml-1 size-4" />
+              </Link>
+            </Button>
+          </motion.div>
+
+          {blogsLoading ? (
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {[...Array(3)].map((_, i) => (
+                <Card key={i} className="overflow-hidden h-full">
+                  <CardContent className="p-0">
+                    <div className="h-48 bg-muted animate-pulse" />
+                    <div className="p-6 space-y-3">
+                      <div className="h-4 bg-muted rounded animate-pulse" />
+                      <div className="h-4 bg-muted rounded animate-pulse w-3/4" />
+                      <div className="h-3 bg-muted rounded animate-pulse w-1/2" />
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          ) : blogs.length > 0 ? (
+            <motion.div
+              variants={staggerChildren}
+              initial="initial"
+              whileInView="animate"
+              viewport={{ once: true }}
+              className="grid grid-cols-1 md:grid-cols-3 gap-6"
+            >
+              {blogs.map((blog, index) => (
+                <motion.div key={blog.id} variants={fadeIn} whileHover={{ y: -4 }} transition={{ duration: 0.3 }}>
+                  <Link href={`/blogs/${blog.slug}`}>
+                    <Card className="overflow-hidden group border-muted/70 hover:border-primary/40 transition h-full flex flex-col bg-background hover:cursor-pointer">
+                      {/* Cover Image */}
+                      <div className="relative p-4 h-48 overflow-hidden">
+                        {blog.coverImage ? (
+                          <img
+                            src={blog.coverImage}
+                            alt={blog.title}
+                            className="w-full h-full object-cover transition duration-300 group-hover:scale-105 rounded-xl"
+                            loading="lazy"
+                          />
+                        ) : (
+                          <div className="w-full h-full bg-gradient-to-br from-primary/10 to-primary/5 flex items-center justify-center">
+                            <div className="text-4xl">📝</div>
+                          </div>
+                        )}
+                        <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                      </div>
+
+                      <CardHeader className="pb-3">
+                        <CardTitle className="text-xl flex items-start justify-between gap-2 group-hover:text-primary transition-colors">
+                          <span className="line-clamp-2">{blog.title}</span>
+                          <ArrowUpRight className="size-4 shrink-0 mt-1 opacity-0 group-hover:opacity-100 transition-opacity" />
+                        </CardTitle>
+                      </CardHeader>
+
+                      <CardContent className="pt-0 flex-1 flex flex-col">
+                        {blog.excerpt && (
+                          <p className="text-sm text-muted-foreground mb-4 line-clamp-3 flex-1">{blog.excerpt}</p>
+                        )}
+
+                        <div className="flex items-center justify-between text-xs text-muted-foreground">
+                          <div className="flex items-center gap-4">
+                            <div className="flex items-center gap-1">
+                              <Calendar className="size-3" />
+                              <span>
+                                {new Date(blog.createdAt).toLocaleDateString("en-US", {
+                                  month: "short",
+                                  day: "numeric",
+                                  year: "numeric",
+                                })}
+                              </span>
+                            </div>
+                            <div className="flex items-center gap-1">
+                              <Clock className="size-3" />
+                              <span>{Math.ceil((blog.content?.split(/\s+/).length || 0) / 200)} min read</span>
+                            </div>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </Link>
+                </motion.div>
+              ))}
+            </motion.div>
+          ) : (
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center py-12">
+              <div className="text-6xl mb-4">📝</div>
+              <h3 className="text-xl font-semibold text-muted-foreground mb-2">No blog posts yet</h3>
+              <p className="text-muted-foreground">Check back soon for new articles and insights!</p>
+            </motion.div>
+          )}
+        </div>
+      </section>
+
       {/* About / Skills Section */}
       <section id="about" className="py-20">
         <div className="mx-auto max-w-6xl px-4 grid grid-cols-1 lg:grid-cols-4 gap-10 items-start">
@@ -403,8 +559,8 @@ export function HomePageClient({ projects }: HomePageClientProps) {
             viewport={{ once: true, margin: "-50px" }}
             className="lg:col-span-2"
           >
-            <div className="hidden sm:inline-flex">
-              <Link href="/about" className="flex align-middle justify-center" rel="noreferrer">
+            <div className="sm:inline-flex">
+              <Link href="/about" className="flex align-middle justify-start" rel="noreferrer">
                 <h2 className="text-2xl sm:text-3xl font-semibold">About</h2>
                 <ArrowUpRight className="ml-1 size-6 text-muted-foreground hover:text-primary" />
               </Link>
