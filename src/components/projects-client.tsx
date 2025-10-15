@@ -338,9 +338,13 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent" />
         </div>
         <CardHeader className="pb-2">
-          <CardTitle className="text-2xl flex items-start justify-between gap-2">
-            <span>{project.title}</span>
-            {project.featured && <Badge variant="default">Featured</Badge>}
+          <CardTitle className="text-2xl flex items-center justify-between gap-4">
+            <span className="flex-1 truncate">{project.title}</span>
+            {project.featured && (
+              <Badge variant="default" className="shrink-0">
+                Featured
+              </Badge>
+            )}
           </CardTitle>
         </CardHeader>
         <CardContent className="pt-0 flex-1 flex flex-col">

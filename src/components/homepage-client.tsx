@@ -47,6 +47,12 @@ interface Project {
   tags: string[];
   featured: boolean;
 }
+const previousWork = [
+  "Full-stack web application development",
+  "TypeScript-based scalable applications",
+  "Database design and optimization",
+  "RESTful API development and integration",
+];
 
 interface HomePageClientProps {
   projects: Project[];
@@ -573,11 +579,20 @@ export function HomePageClient({ projects }: HomePageClientProps) {
               the developer experience, and maintain elegant design standards.
             </p>
             <div className="mt-6">
-              <div className="text-xl text-muted-foreground">Previously contributed to</div>
-              <ul className="mt-2 list-disc pl-5 text-balance">
-                <li>Fintech analytics platforms at scale</li>
-                <li>Headless commerce and marketplaces</li>
-                <li>Realtime collaboration tooling</li>
+              <div className="text-xl text-muted-foreground pb-4">Previously contributed to</div>
+              <ul className="space-y-3 list-disc">
+                {previousWork.map((work, index) => (
+                  <motion.li
+                    key={work}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.1 }}
+                    className="flex items-center gap-3 text-primary"
+                  >
+                    <span className="text-primary mt-1 flex-shrink-0">•</span>
+                    <span>{work}</span>
+                  </motion.li>
+                ))}
               </ul>
             </div>
           </motion.div>

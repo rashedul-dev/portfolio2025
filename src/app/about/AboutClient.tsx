@@ -68,12 +68,15 @@ const AboutClient = () => {
     "Testing",
   ];
   const previousWork = [
-    "Fintech analytics platforms at scale",
-    "Headless commerce and marketplaces",
-    "Realtime collaboration tooling",
-    "Enterprise SaaS applications",
-    "Mobile-first web applications",
-    "API design and architecture",
+    "Full-stack web application development",
+    "TypeScript-based scalable applications",
+    "Database design and optimization",
+    "RESTful API development and integration",
+    "E-commerce and marketplace solutions",
+    "Competitive programming and algorithm design",
+    "Machine Learning and NLP projects",
+    "Enterprise-grade SaaS platforms",
+    "Real-time data processing systems",
   ];
   const skillAreas = [
     { name: "Frontend Development", level: 95, icon: Code, color: "bg-blue-500" },
@@ -142,8 +145,10 @@ const AboutClient = () => {
     "Discipline and consistency beat raw talent every time",
     "Teamwork amplifies individual capabilities",
     "Adaptability is the key to surviving change",
-    "Mentoring others reinforces your own understanding",
     "Complex problems break down into simple steps",
+    "Continuous learning is non-negotiable in tech",
+    "User experience should drive technical decisions",
+    "Building takes courage, shipping takes discipline",
   ];
 
   const interests = [
@@ -177,9 +182,9 @@ const AboutClient = () => {
         </motion.header>
 
         {/* Main Content - 2 Column Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 grid-rows-1 gap-8 lg:gap-12 mb-16 items-stretch">
           {/* Left Column - Story & Timeline */}
-          <motion.div initial="hidden" animate="visible" variants={containerVariants} className="space-y-8">
+          <motion.div initial="hidden" animate="visible" variants={containerVariants} className="space-y-8 h-full">
             {/* Introduction Card */}
             <motion.section variants={itemVariants}>
               <Card className="border-l-4 border-l-primary bg-card/50 backdrop-blur-sm">
@@ -218,7 +223,7 @@ const AboutClient = () => {
                       </div>
                       <div className="flex-1 pb-6">
                         <div className="font-semibold text-primary mb-1">{item.year}</div>
-                        <p className="text-muted-foreground">{item.event}</p>
+                        <p className="text-muted-foreground hover:cursor-pointer hover:text-primary">{item.event}</p>
                       </div>
                     </motion.div>
                   ))}
@@ -228,7 +233,7 @@ const AboutClient = () => {
 
             {/* Key Learnings */}
             <motion.section variants={itemVariants}>
-              <Card>
+              <Card className="">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
                     <Award className="w-5 h-5" />
@@ -254,18 +259,18 @@ const AboutClient = () => {
           </motion.div>
 
           {/* Right Column - Skills & Stats */}
-          <motion.div initial="hidden" animate="visible" variants={containerVariants} className="space-y-9">
+          <motion.div initial="hidden" animate="visible" variants={containerVariants} className="space-y-8 h-full">
             {/* Previous Work */}
             <motion.section variants={itemVariants} className="bg-muted/20 border-1 p-6 rounded-2xl">
               <h3 className="text-xl font-semibold mb-4">Previously Contributed To</h3>
-              <ul className="space-y-3">
+              <ul className="space-y-3 list-disc">
                 {previousWork.map((work, index) => (
                   <motion.li
                     key={work}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.1 }}
-                    className="flex items-start gap-3 text-muted-foreground"
+                    className="flex items-center gap-3 text-muted-foreground hover:text-primary hover:cursor-pointer"
                   >
                     <span className="text-primary mt-1 flex-shrink-0">•</span>
                     <span>{work}</span>
@@ -364,7 +369,7 @@ const AboutClient = () => {
                 <CardHeader>
                   <CardTitle>Expertise Areas</CardTitle>
                 </CardHeader>
-                <CardContent className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <CardContent className="grid grid-cols-1 md:grid-cols-2 gap-4 ">
                   {skillAreas.map((area, index) => (
                     <motion.div
                       key={area.name}
