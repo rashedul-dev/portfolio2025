@@ -172,7 +172,7 @@ src/
 **1️⃣ Clone the Repository**
 
 ```bash
-git clone https://github.com/yourusername/portfolio2025.git
+git clone https://github.com/rashedul-dev/portfolio2025.git
 cd portfolio2025
 ```
 
