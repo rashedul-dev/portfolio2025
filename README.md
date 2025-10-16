@@ -19,6 +19,15 @@ A **cutting-edge full-stack developer portfolio** built with **Next.js 14**, fea
 
 ---
 
+## 📍 Project Links
+
+| Resource            | Link                                                                                           |
+| ------------------- | ---------------------------------------------------------------------------------------------- |
+| **GitHub Monorepo** | [https://github.com/rashedul-dev/portfolio2025](https://github.com/rashedul-dev/portfolio2025) |
+| **Live Website**    | [https://dev-rashedul.vercel.app/](https://dev-rashedul.vercel.app/)                           |
+
+---
+
 ## 🔐 Default Admin Credentials
 
 For initial setup and testing, use these default admin credentials:
