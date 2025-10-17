@@ -107,7 +107,7 @@ const AboutClient = () => {
         "Began competitive cricket journey, playing across U-13, U-14, and U-16 teams while developing discipline and teamwork",
     },
     {
-      year: "2019",
+      year: "2018",
       event:
         "Made the tough but mature decision to leave professional cricket, prioritizing family and long-term future goals",
     },
