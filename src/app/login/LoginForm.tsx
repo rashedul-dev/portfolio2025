@@ -122,7 +122,7 @@ export default function LoginForm() {
             </div>
           </form>
 
-          <div className="mt-6 p-4 border rounded-md bg-muted/50">
+          {/* <div className="mt-6 p-4 border rounded-md bg-muted/50">
             <p className="text-xs text-muted-foreground mb-2 font-medium">Default Admin Credentials:</p>
             <p className="text-xs text-muted-foreground">
               Email: <code className="bg-background px-1 py-0.5 rounded">admin@portfolio.com</code>
@@ -130,7 +130,7 @@ export default function LoginForm() {
             <p className="text-xs text-muted-foreground">
               Password: <code className="bg-background px-1 py-0.5 rounded">Admin@123</code>
             </p>
-          </div>
+          </div> */}
         </CardContent>
       </Card>
     </div>

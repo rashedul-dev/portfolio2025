@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import ErrorReporter from "@/components/ErrorReporter";
-import Script from "next/script";
 import { Toaster } from "react-hot-toast";
 import Layout from "@/components/Layout";
 
