@@ -325,7 +325,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
       transition={{ duration: 0.4, delay: index * 0.05 }}
       whileHover={{ y: -2 }}
     >
-      <Card className="overflow-hidden group border-muted/70 hover:border-primary/40 transition h-full flex flex-col bg-muted/30 hover:cursor-pointer">
+      <Card className="overflow-hidden group border-muted/70 hover:border-primary/40 transition h-full flex flex-col bg-muted/30 ">
         <div className="relative h-22 overflow-hidden">
           <motion.img
             src={project.thumbnail || defaultImage}

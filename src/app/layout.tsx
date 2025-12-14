@@ -2,6 +2,15 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Toaster } from "react-hot-toast";
 import Layout from "@/components/Layout";
+import { Bricolage_Grotesque } from "next/font/google";
+import { SmoothCursor } from "@/components/ui/smooth-cursor";
+
+const bricolage = Bricolage_Grotesque({
+  subsets: ["latin"],
+  weight: ["200", "300", "400", "500", "600", "700", "800"],
+  variable: "--font-bricolage",
+  display: "swap",
+});
 
 // Get base URL from environment variable with fallback
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://rashedulislam.dev";
@@ -49,11 +58,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className={bricolage.variable} suppressHydrationWarning>
       <body className="antialiased">
         {/* <ErrorReporter /> */}
         <Toaster position="top-right" />
-
+        {/* <SmoothCursor /> */}
         <Layout>{children}</Layout>
       </body>
     </html>

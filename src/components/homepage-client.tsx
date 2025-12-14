@@ -326,9 +326,9 @@ export function HomePageClient({ projects }: HomePageClientProps) {
 
             <motion.div variants={fadeIn} className="mt-8 flex flex-wrap gap-3">
               <Button asChild size="lg">
-                <a href="#projects">
+                <Link href="/projects">
                   View Projects <ArrowUpRight className="ml-1 size-4" />
-                </a>
+                </Link>
               </Button>
               <Button
                 variant="outline"

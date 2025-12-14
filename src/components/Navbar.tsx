@@ -19,6 +19,7 @@ export function Navbar({ dark, setDark, mounted }: NavbarProps) {
     { href: "/projects", label: "Projects" },
     { href: "/about", label: "About" },
     { href: "/contact", label: "Contact" },
+    { href: "/blogs", label: "Blog" }, // Added Blog to navLinks array
   ];
 
   return (
@@ -27,32 +28,34 @@ export function Navbar({ dark, setDark, mounted }: NavbarProps) {
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
-            <div className="size-8 rounded-md bg-primary/10 grid place-items-center text-primary font-bold">RI</div>
+            {/* <div className="size-8 rounded-md bg-primary/10 grid place-items-center text-primary font-bold">RI</div> */}
+            <div className="size-8 rounded-md bg-primary/10 grid place-items-center">
+              <img src="/images/logo.png" alt="logo" />
+            </div>
             <span className="text-lg font-medium text-muted-foreground hidden sm:inline">Rashedul Islam</span>
           </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-1">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.href}
                 href={link.href}
                 className="px-3 py-2 rounded-md text-lg text-muted-foreground hover:text-foreground hover:bg-accent transition"
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
-            <Link
-              href="/blogs"
-              className="px-3 py-2 rounded-md text-lg text-muted-foreground hover:text-foreground hover:bg-accent transition"
-            >
-              Blog
-            </Link>
           </nav>
 
           {/* Right Side Actions */}
           <div className="flex items-center gap-2">
-            <Button asChild variant="ghost" size="sm" className="hidden md:flex">
+            <Button
+              asChild
+              variant="ghost"
+              size="sm"
+              className="hidden md:flex opacity-0 hover:opacity-100 transition-opacity duration-300"
+            >
               <Link href="/dashboard">Dashboard</Link>
             </Button>
 
@@ -87,20 +90,14 @@ export function Navbar({ dark, setDark, mounted }: NavbarProps) {
               <SheetContent side="right" className="w-64">
                 <div className="mt-8 flex flex-col gap-1">
                   {navLinks.map((link) => (
-                    <a
+                    <Link
                       key={link.href}
                       href={link.href}
                       className="px-3 py-2 rounded-md text-lg text-muted-foreground hover:text-foreground hover:bg-accent transition"
                     >
                       {link.label}
-                    </a>
+                    </Link>
                   ))}
-                  <Link
-                    href="/blogs"
-                    className="px-3 py-2 rounded-md text-lg text-muted-foreground hover:text-foreground hover:bg-accent transition"
-                  >
-                    Blog
-                  </Link>
                   <Separator className="my-2" />
                   <Link
                     href="/dashboard"
@@ -112,12 +109,16 @@ export function Navbar({ dark, setDark, mounted }: NavbarProps) {
                   <div className="flex gap-2 pl-2">
                     <Link
                       href="https://github.com/rashedul-dev"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="inline-flex items-center gap-1 text-lg hover:underline"
                     >
                       <Github className="size-4" /> GitHub
                     </Link>
                     <Link
-                      href="https://linkedin.com/in/yourname"
+                      href="https://linkedin.com/in/rashedul-dev"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="inline-flex items-center gap-1 text-lg hover:underline"
                     >
                       <Linkedin className="size-4" /> LinkedIn
