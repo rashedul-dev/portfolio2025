@@ -135,9 +135,9 @@ export async function POST(request: NextRequest) {
       });
 
       // Revalidate relevant cache tags
-      revalidateTag("blogs");
+      revalidateTag("blogs","default");
       if (published) {
-        revalidateTag("published-blogs");
+        revalidateTag("published-blogs","default");
       }
 
       return NextResponse.json(

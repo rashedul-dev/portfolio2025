@@ -242,7 +242,7 @@ export async function PUT(request: NextRequest) {
 
       // Revalidate cache tags
       Array.from(cacheTagsToRevalidate).forEach((tag) => {
-        revalidateTag(tag);
+        revalidateTag(tag, "default");
       });
 
       return NextResponse.json(
